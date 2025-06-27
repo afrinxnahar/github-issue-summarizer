@@ -1,0 +1,35 @@
+openapi: 3.0.3
+info:
+  title: GitHub Issue Summarizer MCP Server
+  version: 1.0.0
+paths:
+  /api/tools/execute:
+    post:
+      summary: Execute an MCP tool
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tool:
+                  type: string
+                parameters:
+                  type: object
+                  properties:
+                    repo:
+                      type: string
+      responses:
+        '200':
+          description: Tool execution result
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    summary:
+                      type: string
