@@ -11,9 +11,9 @@ import { McpModule } from '@rekog/mcp-nest';
       name: 'github-issue-summarizer',
       version: '1.0.0',
       sse: { pingEnabled: true, pingIntervalMs: 30000 },
-    })
+    }),
   ],
   controllers: [McpController],
   providers: [McpService],
 })
-export class AppModule { }
+export class AppModule {}

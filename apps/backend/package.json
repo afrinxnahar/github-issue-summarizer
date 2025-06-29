@@ -28,6 +28,7 @@
     "@nestjs/platform-express": "^11.0.1",
     "@octokit/core": "^7.0.2",
     "@rekog/mcp-nest": "^1.6.2",
+    "adm-zip": "^0.5.16",
     "dotenv": "^17.0.0",
     "express": "^5.1.0",
     "openai": "^5.8.2",
