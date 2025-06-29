@@ -1,12 +1,19 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { McpController } from './mcp/mcp.controller';
 import { McpService } from './mcp/mcp.service';
-import { McpModule } from './mcp/mcp.module';
+import { ConfigModule } from '@nestjs/config';
+import { McpModule } from '@rekog/mcp-nest';
 
 @Module({
-  imports: [McpModule],
-  controllers: [AppController],
-  providers: [AppService, McpService],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    McpModule.forRoot({
+      name: 'github-issue-summarizer',
+      version: '1.0.0',
+      sse: { pingEnabled: true, pingIntervalMs: 30000 },
+    })
+  ],
+  controllers: [McpController],
+  providers: [McpService],
 })
-export class AppModule {}
+export class AppModule { }
